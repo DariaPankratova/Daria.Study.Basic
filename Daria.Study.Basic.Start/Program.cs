@@ -40,7 +40,7 @@ namespace Daria.Study.Basic.Start
             var i = 0;
 
             var myList = new List<int>(10);
-            myList.Add("test");
+           // myList.Add("test");
             myList.Count();
             myList.Sort();
 
