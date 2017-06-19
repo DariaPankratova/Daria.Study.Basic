@@ -34,6 +34,7 @@ using System.Threading.Tasks;
 */
 namespace Daria.Study.Basic.StartPractice
 {
+
     class Program
     {
         static void Main(string[] args)
@@ -44,16 +45,19 @@ void Console.Write(string value);
 string Console.ReadLine();
 bool int.TryParse(string value, out int result);
 */
-            var array = new[] { 4, 8, 7 };
-            var divArray = new int[3];
+            var array = new ArrayAgent();
+
             var notExit = true;
             var output = "";
             var isDivArrayVisible = false;
-
             while (notExit)
             {
                 Console.Clear();
-                Console.WriteLine($"[{array[0]}, {array[1]}, {array[2]}], {array.Sum()}");
+                Console.WriteLine(
+                    $"[{array.GetElement(0)}, " +
+                    $"{array.GetElement(1)}, " +
+                    $"{array.GetElement(2)}], " +
+                    $"{array.Array.Sum()}");
                 Console.WriteLine("Выберите пункт меню:");
                 Console.WriteLine("1 - Ввести первый элемент");
                 Console.WriteLine("2 - Ввести второй элемент");
@@ -62,10 +66,10 @@ bool int.TryParse(string value, out int result);
                 Console.WriteLine("5 - Отсортировать по убыванию");
                 Console.WriteLine("6 - Разделить второй элемент на первый");
                 Console.WriteLine("7 - Выход");
-                
+
                 if (isDivArrayVisible)
                 {
-                    foreach (var divElement in divArray)
+                    foreach (var divElement in array.GetDividedByIndexArray())
                     {
                         Console.WriteLine(divElement);
                     }
@@ -79,11 +83,10 @@ bool int.TryParse(string value, out int result);
                 {
                     case "1":
                         {
-                            //int value;
                             var first = Console.ReadLine();
                             if (int.TryParse(first, out int value))
                             {
-                                array[0] = value;
+                                array.SetElement(0, value);
                             }
                             break;
                         }
@@ -92,7 +95,7 @@ bool int.TryParse(string value, out int result);
                             var first = Console.ReadLine();
                             if (int.TryParse(first, out int value))
                             {
-                                array[1] = value;
+                                array.SetElement(1, value);
                             }
                             break;
                         }
@@ -101,29 +104,23 @@ bool int.TryParse(string value, out int result);
                             var first = Console.ReadLine();
                             if (int.TryParse(first, out int value))
                             {
-                                array[2] = value;
+                                array.SetElement(2, value);
                             }
                             break;
                         }
                     case "4":
                         {
-                            output = (array.Sum() / array.Length).ToString();
+                            output = array.Average.ToString();
                             break;
                         }
                     case "5":
                         {
-                            Array.Sort(array);
-                            //array = array.Reverse().ToArray();
-                            Array.Reverse(array);
+                            array.Sort(false);
                             break;
                         }
                     case "6":
                         {
-                            if (array[0] != 0)
-                            {
-                                output = ((double)array[1] / array[0]).ToString("0.##");
-                            }
-                            else output = "Infinity";
+                            output = array.DivideElementsByIndex(1, 0);
                             break;
                         }
                     case "7":
@@ -133,10 +130,6 @@ bool int.TryParse(string value, out int result);
                         }
                     case "8":
                         {
-                            for (var i = 0; i < array.Length; i++)
-                            {
-                                divArray[i] = array[i] / (i+1);
-                            }
                             isDivArrayVisible = true;
                             break;
                         }

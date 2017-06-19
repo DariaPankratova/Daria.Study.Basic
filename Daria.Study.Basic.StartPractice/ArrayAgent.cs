@@ -39,6 +39,12 @@ namespace Daria.Study.Basic.StartPractice
         {
             Array[index] = value;
         }
+        /// <summary>
+        /// Устанавливает элемент по индексу (безопасно)
+        /// </summary>
+        /// <param name="index">Индекс элемента</param>
+        /// <param name="value">Новое значение</param>
+        /// <returns>Успешна ли операция</returns>
         public bool TrySetElement(int index, int value)
         {
             if (index >= Array.Length) return false;
@@ -59,11 +65,13 @@ namespace Daria.Study.Basic.StartPractice
             value = GetElement(index);
             return true;
         }
-        public void ArraySort(bool isAscending)
+
+        public void Sort(bool isAscending)
         {
             System.Array.Sort(Array);
             if (!isAscending) System.Array.Reverse(Array);
         }
+        ////////////////////////////
         private double PerformDivisionByIndex(int firstIndex, int secondIndex)
         {
             return (double)Array[firstIndex] / Array[secondIndex];
