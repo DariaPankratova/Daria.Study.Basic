@@ -45,7 +45,7 @@ void Console.Write(string value);
 string Console.ReadLine();
 bool int.TryParse(string value, out int result);
 */
-            var array = new ArrayAgent();
+            var array = new ArrayAgent_old();
 
             var notExit = true;
             var output = "";
