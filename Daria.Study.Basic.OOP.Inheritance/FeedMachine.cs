@@ -12,6 +12,7 @@ namespace Daria.Study.Basic.OOP.Inheritance
         public bool Ready { get; set; } = true;
 
         //композиция с интерфейсом IFeedStatusDispatcher
+        //здесь выполняется инъекция зависимости (dependency injection)
         public FeedMachine(IFeedStatusDispatcher feedStatusDispatcher)
         {
             _feedStatusDispatcher = feedStatusDispatcher;
