@@ -16,7 +16,13 @@ namespace Daria.Study.Basic.StartPractice
                 return List.Sum();
             } 
         }
-
+        public int Length
+        {
+            get
+            {
+                return List.Count;
+            }
+        }
         public double Average
         {
             get
@@ -27,27 +33,33 @@ namespace Daria.Study.Basic.StartPractice
 
         public int GetElement(int index)
         {
-            throw new NotImplementedException();
+            return List[index];
         }
-
-        public void SetElement(int index, int value)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Sort(bool isAscending)
-        {
-            throw new NotImplementedException();
-        }
-
         public bool TryGetElement(int index, out int value)
         {
-            throw new NotImplementedException();
+            if (index >= List.Count)
+            {
+                value = 0;
+                return false;
+            }
+            value = GetElement(index);
+            return true;
         }
-
+        public void SetElement(int index, int value)
+        {
+            List[index] = value;
+        }
         public bool TrySetElement(int index, int value)
         {
-            throw new NotImplementedException();
+            if (index >= List.Count) return false;
+            SetElement(index, value);
+            return true;
         }
+        public void Sort(bool isAscending)
+        {
+            List.Sort();
+            if (!isAscending) List.Reverse();
+        }
+              
     }
 }

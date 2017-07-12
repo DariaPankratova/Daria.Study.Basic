@@ -15,6 +15,13 @@ namespace Daria.Study.Basic.StartPractice
             Array[1] = second;
             Array[2] = third;
         }
+        public int Length
+        {
+            get
+            {
+                return Array.Length;
+            }
+        }
         public int Sum
         {
             get

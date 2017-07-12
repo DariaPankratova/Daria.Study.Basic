@@ -43,8 +43,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ArrayAgent.cs" />
+    <Compile Include="ArrayAgentOperationsManager.cs" />
     <Compile Include="ArrayAgent_old.cs" />
+    <Compile Include="FractionalArrayAgentOperationsManager.cs" />
     <Compile Include="IArrayAgent.cs" />
+    <Compile Include="IntegerArrayAgentOperationsManager.cs" />
     <Compile Include="ListArrayAgent.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
