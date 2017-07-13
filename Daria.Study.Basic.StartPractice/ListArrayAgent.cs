@@ -8,8 +8,8 @@ namespace Daria.Study.Basic.StartPractice
 {
     class ListArrayAgent : IArrayAgent
     {
-        private List<int> List { get; set; } = new List<int>(3);
-        public int Sum
+        private List<decimal> List { get; set; } = new List<decimal>(3);
+        public decimal Sum
         {
             get
             {
@@ -23,7 +23,7 @@ namespace Daria.Study.Basic.StartPractice
                 return List.Count;
             }
         }
-        public double Average
+        public decimal Average
         {
             get
             {
@@ -31,11 +31,11 @@ namespace Daria.Study.Basic.StartPractice
             }
         }
 
-        public int GetElement(int index)
+        public decimal GetElement(int index)
         {
             return List[index];
         }
-        public bool TryGetElement(int index, out int value)
+        public bool TryGetElement(int index, out decimal value)
         {
             if (index >= List.Count)
             {
@@ -45,11 +45,11 @@ namespace Daria.Study.Basic.StartPractice
             value = GetElement(index);
             return true;
         }
-        public void SetElement(int index, int value)
+        public void SetElement(int index, decimal value)
         {
             List[index] = value;
         }
-        public bool TrySetElement(int index, int value)
+        public bool TrySetElement(int index, decimal value)
         {
             if (index >= List.Count) return false;
             SetElement(index, value);

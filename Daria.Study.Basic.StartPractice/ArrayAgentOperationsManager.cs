@@ -13,7 +13,9 @@ namespace Daria.Study.Basic.StartPractice
         {
             _arrayAgent = arrayAgent;
         }
-        protected abstract decimal PerformDivision(int firstElement, int secondElement);
+
+        protected abstract decimal PerformDivision(decimal firstElement, decimal secondElement);
+
         public string DivideElementsByIndex(int firstIndex, int secondIndex)
         {
             if (_arrayAgent.GetElement(secondIndex) == 0) return "Infinity";
@@ -26,7 +28,7 @@ namespace Daria.Study.Basic.StartPractice
             var outArrayAgent = new ArrayAgent();
             for (var index = 0; index < outArrayAgent.Length; index++)
             {
-                outArrayAgent.SetElement(index, _arrayAgent.GetElement(index) / (index + 1));
+                outArrayAgent.SetElement(index, PerformDivision(_arrayAgent.GetElement(index),(index + 1)));
             }
             return outArrayAgent;
         }

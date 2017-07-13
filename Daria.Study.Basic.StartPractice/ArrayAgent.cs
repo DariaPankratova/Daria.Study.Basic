@@ -8,8 +8,8 @@ namespace Daria.Study.Basic.StartPractice
 {
     class ArrayAgent:IArrayAgent
     {
-        private int[] Array { get; set; } = new int[3];
-        public ArrayAgent(int first = 6, int second = 3, int third = 9)
+        private decimal[] Array { get; set; } = new decimal[3];
+        public ArrayAgent(decimal first = 6, decimal second = 3, decimal third = 9)
         {
             Array[0] = first;
             Array[1] = second;
@@ -22,21 +22,21 @@ namespace Daria.Study.Basic.StartPractice
                 return Array.Length;
             }
         }
-        public int Sum
+        public decimal Sum
         {
             get
             {
                 return Array.Sum();
             }
         }
-        public double Average
+        public decimal Average
         {
             get
             {
                 return Array.Average();
             }
         }
-        public void SetElement(int index, int value)
+        public void SetElement(int index, decimal value)
         {
             Array[index] = value;
         }
@@ -46,17 +46,17 @@ namespace Daria.Study.Basic.StartPractice
         /// <param name="index">Индекс элемента</param>
         /// <param name="value">Новое значение</param>
         /// <returns>Успешна ли операция</returns>
-        public bool TrySetElement(int index, int value)
+        public bool TrySetElement(int index, decimal value)
         {
             if (index >= Array.Length) return false;
             SetElement(index, value);
             return true;
         }
-        public int GetElement(int index)
+        public decimal GetElement(int index)
         {
             return Array[index];
         }
-        public bool TryGetElement(int index, out int value)
+        public bool TryGetElement(int index, out decimal value)
         {
             if (index >= Array.Length)
             {

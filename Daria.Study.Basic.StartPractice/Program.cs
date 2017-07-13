@@ -45,8 +45,9 @@ void Console.Write(string value);
 string Console.ReadLine();
 bool int.TryParse(string value, out int result);
 */
-            var array = new ArrayAgent_old();
-
+            var array = new ArrayAgent();
+            var arrayDivideManager = new IntegerArrayAgentOperationsManager(array);
+            
             var notExit = true;
             var output = "";
             var isDivArrayVisible = false;
@@ -57,7 +58,7 @@ bool int.TryParse(string value, out int result);
                     $"[{array.GetElement(0)}, " +
                     $"{array.GetElement(1)}, " +
                     $"{array.GetElement(2)}], " +
-                    $"{array.Array.Sum()}");
+                    $"{array.Sum}");
                 Console.WriteLine("Выберите пункт меню:");
                 Console.WriteLine("1 - Ввести первый элемент");
                 Console.WriteLine("2 - Ввести второй элемент");
@@ -69,9 +70,10 @@ bool int.TryParse(string value, out int result);
 
                 if (isDivArrayVisible)
                 {
-                    foreach (var divElement in array.GetDividedByIndexArray())
+                    var divArray = arrayDivideManager.GetDividedByIndexArray();
+                    for (var index = 0; index < divArray.Length; index++)
                     {
-                        Console.WriteLine(divElement);
+                        Console.WriteLine(divArray.GetElement(index));
                     }
                     isDivArrayVisible = false;
                 }
@@ -120,7 +122,7 @@ bool int.TryParse(string value, out int result);
                         }
                     case "6":
                         {
-                            output = array.DivideElementsByIndex(1, 0);
+                            output = arrayDivideManager.DivideElementsByIndex(1, 0);
                             break;
                         }
                     case "7":

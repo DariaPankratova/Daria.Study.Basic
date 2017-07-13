@@ -12,7 +12,7 @@ namespace Daria.Study.Basic.StartPractice
         {
         }
 
-        protected override decimal PerformDivision(int firstElement, int secondElement)
+        protected override decimal PerformDivision(decimal firstElement, decimal secondElement)
         {
             return firstElement / secondElement;   
         }
